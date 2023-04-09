@@ -56,6 +56,9 @@
          <font>
             <Font name="System Bold" size="16.0" />
          </font>
+         <effect>
+            <DropShadow color="#dac3c3" />
+         </effect>
       </JFXButton>
       <JFXButton buttonType="RAISED" layoutY="523.0" onAction="#btnKeyMoneyOnAction" prefHeight="70.0" prefWidth="209.0" style="-fx-background-color: #064663;" text="Key Money Pending" textFill="WHITE" wrapText="true">
          <font>
@@ -67,9 +70,9 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="160.0" fitWidth="209.0">
+      <ImageView fitHeight="160.0" fitWidth="200.0" layoutX="5.0">
          <image>
-            <Image url="@../../../../../resouces/Assets/rm330-pa-logo2-02.jpg" />
+            <Image url="@../../../../../resouces/Assets/ddd.png" />
          </image>
          <effect>
             <DropShadow />

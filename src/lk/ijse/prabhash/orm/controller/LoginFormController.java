@@ -29,8 +29,8 @@ public class LoginFormController {
 
     public void btnLoginOnAction(ActionEvent actionEvent) throws Exception {
         if(txtUserName.getText().equals("000") && txtPassword.getText().equals("000")){
-            lblWrong.setText("Please enter your UserName and Password");
-
+            /*lblWrong.setText("Please enter your UserName and Password");*/
+            setUI("DashBoardForm");
         }else if (txtUserName.getText()!=null&& txtPassword.getText()!=null){
             List<UserDTO>userDetails=logBO.getUserDetails(txtUserName.getText(),txtPassword.getText());
             UserDTO userDTO = new UserDTO();
@@ -41,7 +41,7 @@ public class LoginFormController {
             }
 
             if (txtUserName.getText().equals(userDTO.getUserName()) &&  txtPassword.getText().equals(userDTO.getPassword())){
-                setUI("DashBoardForm");
+                /*setUI("DashBoardForm");*/
             }else {
                 new Alert(Alert.AlertType.WARNING,"Wrong UserName OR Password, Try Again!").show();
             }
@@ -60,8 +60,7 @@ public class LoginFormController {
         Scene scene = new Scene(load);
         Stage stage2= new Stage();
         stage2.setTitle("Hostel Management System");
-        Image image = new Image("/lk/ijse/hibernate/assets/images/SoftwareIcon.png");
-        stage2.getIcons().add(image);
+
         stage2.setScene(scene);
         stage2.centerOnScreen();
         stage2.show();

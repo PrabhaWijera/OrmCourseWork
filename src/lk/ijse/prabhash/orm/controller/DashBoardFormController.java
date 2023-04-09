@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -67,8 +68,6 @@ public class DashBoardFormController {
         Scene scene = new Scene(load);
         Stage stage2= new Stage();
         stage2.setTitle("Hostel Management System");
-        Image image = new Image("/lk/ijse/hibernate/assets/images/SoftwareIcon.png");
-        stage2.getIcons().add(image);
         stage2.setScene(scene);
         stage2.centerOnScreen();
         stage2.show();
@@ -93,5 +92,9 @@ public class DashBoardFormController {
 
     public void btnKeyMoneyOnAction(ActionEvent actionEvent) throws IOException {
         setUI("PendingKeyMoneyForm");
+    }
+
+    public void OpenDash(MouseEvent mouseEvent) throws IOException {
+        setUI("CoverDash");
     }
 }

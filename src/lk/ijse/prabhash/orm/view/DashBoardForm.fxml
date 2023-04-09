@@ -70,7 +70,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="160.0" fitWidth="200.0" layoutX="5.0">
+      <ImageView fitHeight="160.0" fitWidth="200.0" layoutX="5.0" onMouseClicked="#OpenDash">
          <image>
             <Image url="@../../../../../resouces/Assets/ddd.png" />
          </image>

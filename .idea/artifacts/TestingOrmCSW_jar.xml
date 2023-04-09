@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TestingOrmCSW:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TestingOrmCSW_jar</output-path>
+    <root id="archive" name="TestingOrmCSW.jar">
+      <element id="module-output" name="TestingOrmCSW" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LIBRARYS/jfoenix-8.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LIBRARYS/jfoenix-8.0.10.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LIBRARYS/mysql-connector-java-8.0.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LIBRARYS/javax.persistence-api-2.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LIBRARYS/lombok.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../LIBRARYS/hibernate-core-5.6.0.Final.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

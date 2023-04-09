@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="hibernate-commons-annotations-5.1.2.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LIBRARYS/hibernate-commons-annotations-5.1.2.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

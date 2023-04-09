@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jandex-2.2.3.Final">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../LIBRARYS/jandex-2.2.3.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

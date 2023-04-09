@@ -18,6 +18,7 @@ import java.time.LocalDate;
 @Entity
 public class Reservation {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String res_id;
     private LocalDate date;
 

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="HostelManagementSystem@localhost" uuid="eb47b42a-981e-4b9d-9f2e-21e51f6ef7fe">
+    <data-source source="LOCAL" name="hibernate_D24@localhost" uuid="06ec511a-cc04-464a-b1e3-5c623e0caca4">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/HostelManagementSystem</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/hibernate_D24</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="d11c010f-6fae-4f34-a61a-ef8be7c3c419">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="a322bbc5-fa52-41fb-9c58-ad3dca74d4ca">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
@@ -16,7 +16,7 @@
 
 E:/TestingOrmCSW/src/resouces/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/hibernate_test?createDatabaseIfNotExist=true</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/hibernate_D24?createDatabaseIfNotExist=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>

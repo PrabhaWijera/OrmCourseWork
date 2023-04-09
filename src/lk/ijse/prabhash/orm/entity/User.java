@@ -5,9 +5,7 @@ package lk.ijse.prabhash.orm.entity;
 import lombok.*;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
-import javax.persistence.Cacheable;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @NoArgsConstructor
@@ -16,6 +14,7 @@ import javax.persistence.Id;
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class User {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private String userId;
     private String name;

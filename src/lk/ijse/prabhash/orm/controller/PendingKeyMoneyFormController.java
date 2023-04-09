@@ -44,7 +44,7 @@ public class PendingKeyMoneyFormController {
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("key_money"));
         colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
         colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-       /* loadAllData();*/
+        loadAllData();
 
         txtReservationId.setEditable(false);
         txtName.setEditable(false);
@@ -61,7 +61,7 @@ public class PendingKeyMoneyFormController {
         txtType.setDisable(true);
         txtKeyMoney.setDisable(true);
         txtDate.setDisable(true);
-        btnUpdate.setDisable(true);
+//        btnUpdate.setDisable(true);
 
         tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue!= null){
@@ -72,7 +72,7 @@ public class PendingKeyMoneyFormController {
                 txtType.setDisable(false);
                 txtKeyMoney.setDisable(false);
                 txtDate.setDisable(false);
-                btnUpdate.setDisable(false);
+//                btnUpdate.setDisable(false);
 
                 txtReservationId.setText(newValue.getRes_id());
                 txtName.setText(newValue.getName());

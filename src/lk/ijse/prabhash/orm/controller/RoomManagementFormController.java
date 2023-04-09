@@ -39,8 +39,8 @@ public class RoomManagementFormController {
 
         textClearAndBtnDisable();
         cmbType.getItems().addAll("Non-AC","Non-AC / Food","AC","AC / Food");
-      /*  loadAllRooms();
-*/
+      loadAllRooms();
+
         colRoomId.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("key_money"));

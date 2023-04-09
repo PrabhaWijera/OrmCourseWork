@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,14 +14,7 @@
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#50577a" height="70.0" layoutX="209.0" stroke="#50577a" strokeType="INSIDE" width="1093.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#50577a" height="639.0" layoutY="161.0" stroke="#282a3a" strokeType="INSIDE" width="209.0" />
-      <AnchorPane fx:id="loadContext" blendMode="SRC_ATOP" layoutX="209.0" layoutY="70.0" prefHeight="730.0" prefWidth="1092.0" style="-fx-background-color: #787A91;">
-         <children>
-            <ImageView fitHeight="730.0" fitWidth="1092.0" layoutX="1.0" layoutY="-1.0">
-               <image>
-                  <Image url="@../../../../../resouces/Assets/23206.jpg" />
-               </image>
-            </ImageView>
-         </children></AnchorPane>
+      <AnchorPane fx:id="loadContext" blendMode="SRC_ATOP" layoutX="209.0" layoutY="70.0" prefHeight="730.0" prefWidth="1092.0" style="-fx-background-color: #787A91;" />
       <Label fx:id="lblDate" layoutX="833.0" layoutY="20.0" text="2020 - 10 -01" textFill="WHITE">
          <font>
             <Font name="System Bold" size="20.0" />
@@ -78,5 +72,6 @@
             <DropShadow />
          </effect>
       </ImageView>
+      <ProgressBar layoutX="1.0" layoutY="138.0" prefHeight="23.0" prefWidth="209.0" />
    </children>
 </AnchorPane>

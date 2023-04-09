@@ -60,9 +60,9 @@ public class RegistrationFormController {
             return new ReadOnlyObjectWrapper<>(btnDelete);
         });
 
-       /* setStudentId();*/
-        /*setRoomId();*/
-        /*generateNewId();*/
+        setStudentId();
+        setRoomId();
+        generateNewId();
         
         txtName.setEditable(false);
         txtAddress.setEditable(false);
@@ -70,8 +70,8 @@ public class RegistrationFormController {
         txtType.setEditable(false);
         txtKeyMoney.setEditable(false);
         txtQty.setEditable(false);
-        btnAddToCart.setDisable(true);
-        btnRegister.setDisable(true);
+      /*  btnAddToCart.setDisable(true);
+        btnRegister.setDisable(true);*/
 
         btnAddToCart.setDisable(true);
 

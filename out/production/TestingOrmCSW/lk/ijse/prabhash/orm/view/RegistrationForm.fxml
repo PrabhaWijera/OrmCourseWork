@@ -4,17 +4,21 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="730.0" prefWidth="1092.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.prabhash.orm.controller.RegistrationFormController">
    <children>
-      <Separator layoutX="61.0" layoutY="71.0" prefHeight="12.0" prefWidth="954.0" />
+      <ImageView fitHeight="730.0" fitWidth="1092.0">
+         <image>
+            <Image url="@../../../../../resouces/Assets/v996-025.jpg" />
+         </image>
+      </ImageView>
       <TableView fx:id="tblCart" layoutX="58.0" layoutY="364.0" prefHeight="282.0" prefWidth="982.0">
          <columns>
             <TableColumn fx:id="colRoomTypeId" prefWidth="172.0" text="Room Type Id" />
@@ -24,29 +28,38 @@
             <TableColumn fx:id="colDelete" prefWidth="157.0" text="---" />
          </columns>
       </TableView>
-      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="835.0" layoutY="305.0" onAction="#btnAddToCartOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #3498db;" text="Add " />
-      <Label layoutX="61.0" layoutY="27.0" prefHeight="53.0" prefWidth="473.0" text="Add Payment For Student">
+      <JFXButton fx:id="btnAddToCart" buttonType="RAISED" layoutX="835.0" layoutY="305.0" onAction="#btnAddToCartOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #08D9D6;" text="Add ">
+         <graphic>
+            <ImageView fitHeight="20.0" fitWidth="30.0">
+               <image>
+                  <Image url="@../../../../../resouces/Assets/diskette.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <Label layoutX="61.0" layoutY="27.0" prefHeight="53.0" prefWidth="473.0" text="Add Payment For Student" textFill="WHITE">
          <font>
             <Font name="System Bold" size="36.0" />
          </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="BLACK" />
-                  <Stop color="#3498db" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
+         <effect>
+            <DropShadow color="#0e06ff" spread="0.2" />
+         </effect>
       </Label>
       <JFXComboBox fx:id="cmbStudentId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="134.0" prefHeight="40.0" prefWidth="192.0" promptText="Student Id" unFocusColor="BLACK" />
       <JFXComboBox fx:id="cmbRoomTypeId" focusColor="BLACK" labelFloat="true" layoutX="73.0" layoutY="221.0" prefHeight="40.0" prefWidth="192.0" promptText="Room Type Id" unFocusColor="BLACK" />
-      <JFXButton fx:id="btnRegister" buttonType="RAISED" layoutX="835.0" layoutY="665.0" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #3498db;" text="Register" />
-      <Label layoutX="791.0" layoutY="83.0" prefHeight="36.0" prefWidth="150.0" text="Reservation Id :">
+      <JFXButton fx:id="btnRegister" buttonType="RAISED" layoutX="835.0" layoutY="665.0" onAction="#btnRegisterOnAction" prefHeight="40.0" prefWidth="205.0" style="-fx-background-color: #FFDE7D;" text="Register">
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="42.0">
+               <image>
+                  <Image url="@../../../../../resouces/Assets/edit.png" />
+               </image>
+            </ImageView>
+         </graphic></JFXButton>
+      <Label layoutX="788.0" layoutY="62.0" prefHeight="36.0" prefWidth="150.0" text="Reservation Id :">
          <font>
             <Font size="21.0" />
          </font>
       </Label>
-      <Label fx:id="lblReservation" layoutX="950.0" layoutY="83.0" prefHeight="36.0" prefWidth="100.0">
+      <Label fx:id="lblReservation" layoutX="948.0" layoutY="62.0" prefHeight="36.0" prefWidth="100.0">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

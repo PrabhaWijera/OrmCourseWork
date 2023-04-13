@@ -12,6 +12,7 @@ import javafx.scene.input.KeyEvent;
 import lk.ijse.prabhash.orm.bo.BOFactory;
 import lk.ijse.prabhash.orm.bo.custom.StudentBO;
 import lk.ijse.prabhash.orm.dto.StudentDTO;
+import lk.ijse.prabhash.orm.entity.Student;
 import lk.ijse.prabhash.orm.view.tm.StudentTM;
 
 
@@ -42,6 +43,7 @@ public class StudentManagementFormController {
     public JFXComboBox <String>cmbGender;
     public TableColumn colContactNo;
     LinkedHashMap<TextField, Pattern> map = new LinkedHashMap<>();
+    Student student=new Student();
 
     public void initialize(){
 
@@ -49,7 +51,9 @@ public class StudentManagementFormController {
 
         cmbGender.getItems().addAll("Male","Female","Other");
 
-     /*   loadAllStudents();*/
+        loadAllStudents();
+
+
 
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -80,15 +84,7 @@ public class StudentManagementFormController {
 
             }
         });
-   /*     Pattern namePattern = Pattern.compile("^[A-z ]{3,30}$");
-        Pattern addressPattern = Pattern.compile("^[A-z0-9 /,]{4,20}$");
-        Pattern contactNoPattern = Pattern.compile("^(?:7|0|(?:\\+94))(70|77|78|74|76|72|71)[0-9]{7}$");
-        Pattern date = Pattern.compile("^[1-9]{1}[0-9]{3}-[0-9]{2}-[0-9]{2}$");
 
-        map.put(txtName,namePattern);
-        map.put(txtAddress,addressPattern);
-        map.put(txtContactNo,contactNoPattern);
-        map.put(txtDOB,date);*/
     }
 
     private void loadAllStudents() {

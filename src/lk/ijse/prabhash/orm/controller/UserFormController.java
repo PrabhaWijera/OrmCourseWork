@@ -40,7 +40,7 @@ public class UserFormController {
     private final UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
     public void initialize(){
         textClearAndBtnDisable();
-        /*loadALLUsers();*/
+//        loadALLUsers();
 
         colUserId.setCellValueFactory(new PropertyValueFactory<>("userId"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));

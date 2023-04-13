@@ -64,13 +64,7 @@ public class RoomManagementFormController {
 
             }
         });
-   /*     Pattern idPattern = Pattern.compile("^RM-[0-9]{4}$");
-        Pattern keyMoneyPattern = Pattern.compile("^[1-9][0-9]*(.[0-9]{1,2})?$");
-        Pattern qtyPattern = Pattern.compile("^[1-9][0-9]*$");
 
-        map.put(txtRoomTypeId,idPattern);
-        map.put(txtKeyMoney,keyMoneyPattern);
-        map.put(txtQty,qtyPattern);*/
 
     }
 

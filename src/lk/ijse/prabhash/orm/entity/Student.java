@@ -18,7 +18,7 @@ import java.util.List;
 @org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 public class Student {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   /* @GeneratedValue(strategy = GenerationType.IDENTITY)*/
     @Id
     private String student_id;
     private String name;

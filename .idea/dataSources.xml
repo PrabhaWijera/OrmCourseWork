@@ -19,5 +19,14 @@ E:/TestingOrmCSW/src/resouces/hibernate.cfg.xml</remarks>
       <jdbc-url>jdbc:mysql://localhost:3306/hibernate_D24?createDatabaseIfNotExist=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="TestingOrmCSW/Hibernate" uuid="be88a7c4-1866-4f69-8772-7fcb424c6297">
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <configured-by-url>true</configured-by-url>
+      <remarks>Hibernate</remarks>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/hibernate_D24?createDatabaseIfNotExist=true</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

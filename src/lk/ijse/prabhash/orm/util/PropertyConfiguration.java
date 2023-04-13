@@ -9,29 +9,15 @@ import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertyConfiguration {
- private static SessionFactory sessionFactory;
-    static {
+    public static Properties loadProperties(String fileName) {
+        Properties properties = new Properties();
         try {
-            // Load Hibernate properties from file
-            Properties hibernateProperties = new Properties();
-            InputStream inputStream = Hibernate.class.getClassLoader().getResourceAsStream(" resouces/hibernate.properties");
-            hibernateProperties.load(inputStream);
-
-            // Build Hibernate SessionFactory
-            Configuration configuration = new Configuration();
-            configuration.setProperties(hibernateProperties);
-            sessionFactory = configuration.buildSessionFactory();
+            InputStream inputStream = Hibernate.class.getClassLoader().getResourceAsStream(fileName);
+            properties.load(inputStream);
         } catch (IOException e) {
             // Handle the exception
             e.printStackTrace();
         }
-    }
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
-    public static void closeSessionFactory() {
-        if (sessionFactory != null && !sessionFactory.isClosed()) {
-            sessionFactory.close();
-        }
+        return properties;
     }
 }

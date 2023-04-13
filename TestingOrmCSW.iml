@@ -14,7 +14,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="TestingOrmCSW" />
+          <factory-entry name="TestingOrmCSW" value="3ecf1555-5b86-4203-8821-6266dadd0df6" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

@@ -70,8 +70,8 @@ public class RegistrationFormController {
         txtType.setEditable(false);
         txtKeyMoney.setEditable(false);
         txtQty.setEditable(false);
-      /*  btnAddToCart.setDisable(true);
-        btnRegister.setDisable(true);*/
+      /*  btnAddToCart.setDisable(true);*/
+        btnRegister.setDisable(true);
 
         btnAddToCart.setDisable(true);
 
@@ -175,18 +175,12 @@ public class RegistrationFormController {
         btnRegister.setDisable(!(cmbStudentId.getSelectionModel().getSelectedItem() != null && !tblCart.getItems().isEmpty()));
     }
     public void btnRegisterOnAction(ActionEvent actionEvent) {
-      /*  try {
+        try{
             registrationBO.Register(cmbStudentId.getValue(),lblReservation.getText());
-            new Alert(Alert.AlertType.CONFIRMATION,"Register Complete").show();
-        } catch (Exception e) {
+            new Alert(Alert.AlertType.CONFIRMATION,"Registrashion Compelete").show();
+        }catch (Exception e){
             e.printStackTrace();
         }
-
-        generateNewId();
-        cmbStudentId.getSelectionModel().clearSelection();
-        cmbRoomTypeId.getSelectionModel().clearSelection();
-        cmbPaymentStatus.getSelectionModel().clearSelection();
-        tblCart.getItems().clear();*/
     }
 
     private void generateNewId() {

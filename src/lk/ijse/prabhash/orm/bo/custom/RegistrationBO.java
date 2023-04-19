@@ -19,4 +19,5 @@ public interface RegistrationBO extends SuperBO {
     List<StudentDTO> getStudentDetailUsingId(String id) throws Exception;
     String generateRegistrationId()throws Exception;
 
+    void Register(String studentId, String lblId);
 }

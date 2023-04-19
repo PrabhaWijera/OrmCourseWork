@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Cacheable
-
 @Entity
 public class Reservation {
     @Id

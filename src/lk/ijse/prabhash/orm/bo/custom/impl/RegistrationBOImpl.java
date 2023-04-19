@@ -30,7 +30,7 @@ public class RegistrationBOImpl implements RegistrationBO {
     private final RegistrationDAO registrationDAO = (RegistrationDAO) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.REGISTRATION);
 
     @Override
-    public void Register(ObservableList<CartTM> list, String studentId, String lblId) throws Exception {
+    public void Register(ObservableList<CartTM> list, String studentId, String lblId){
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
 
@@ -143,5 +143,10 @@ public class RegistrationBOImpl implements RegistrationBO {
     public String generateRegistrationId() throws Exception {
         String id = registrationDAO.generateId();
         return id;
+    }
+
+    @Override
+    public void Register(String value, String text) {
+
     }
 }

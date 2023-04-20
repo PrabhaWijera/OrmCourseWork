@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -13,12 +14,15 @@ import lk.ijse.prabhash.orm.bo.BOFactory;
 import lk.ijse.prabhash.orm.bo.custom.PendingKeyMoneyBO;
 import lk.ijse.prabhash.orm.dto.CustomDTO;
 import lk.ijse.prabhash.orm.view.tm.CustomTM;
+import lombok.SneakyThrows;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class PendingKeyMoneyFormController {
+public class PendingKeyMoneyFormController implements Initializable {
    /* public TableView <CustomTM>tblReservation;*/
     public JFXTextField txtStudentId;
     public JFXComboBox<String> cmbPaymentStatus;
@@ -38,27 +42,26 @@ public class PendingKeyMoneyFormController {
     public JFXTextField txtType;
     public JFXTextField txtRoomTypeId;
     public JFXTextField txtKeyMoney;
-    public TableView <CustomTM>tblReservation;
+    public TableView  <CustomTM>tblReservation;
 
-    public void initialize(){
-//
-//        colReservationId.setCellValueFactory(new PropertyValueFactory<>("res_id"));
-//        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
-//        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-//        colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
-//        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
-//        colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("key_money"));
-//        colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-//        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+
+    @SneakyThrows
+    @Override
+
+    public void initialize(URL location, ResourceBundle resources){
+        loadAllData();
+        setCellValueFactory();
+
+     colReservationId.setCellValueFactory(new PropertyValueFactory<>("res_id"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
+        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+        colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("key_money"));
+        colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
         cmbPaymentStatus.getItems().addAll("Paid","Paid Later");
-colReservationId.setCellValueFactory(new PropertyValueFactory<>("resID"));
-colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
-colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("roomTypeID"));
-colType.setCellValueFactory(new PropertyValueFactory<>("type"));
-colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
-colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
 
 tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
     btnUpdate.setDisable(newValue == null);
@@ -97,6 +100,19 @@ tblReservation.getSelectionModel().selectedItemProperty().addListener((observabl
 
     }
 
+
+    private void setCellValueFactory() {
+        colReservationId.setCellValueFactory(new PropertyValueFactory("resID"));
+        colStudentId.setCellValueFactory(new PropertyValueFactory("studentID"));
+        colName.setCellValueFactory(new PropertyValueFactory("name"));
+        colRoomTypeId.setCellValueFactory(new PropertyValueFactory("roomTypeID"));
+        colType.setCellValueFactory(new PropertyValueFactory("type"));
+        colKeyMoney.setCellValueFactory(new PropertyValueFactory("keyMoney"));
+        colPaymentStatus.setCellValueFactory(new PropertyValueFactory("status"));
+        colDate.setCellValueFactory(new PropertyValueFactory("date"));
+
+    }
+
     private void loadAllData() throws Exception {
        try {
 
@@ -112,7 +128,7 @@ tblReservation.getSelectionModel().selectedItemProperty().addListener((observabl
         } catch (Exception e) {
             e.printStackTrace();
         }
-        initialize();
+
    /*   tblReservation.setItems(FXCollections.observableArrayList(pendingKeyMoneyBO.getAllPendingKeyMoneyReservationsUsingReservationStatus().stream().map(dto -> {
             return new CustomTM(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate());
         }).collect(Collectors.toList())));*/
@@ -140,4 +156,6 @@ tblReservation.getSelectionModel().selectedItemProperty().addListener((observabl
     public void btnAddOnAction(ActionEvent actionEvent) {
 
     }
+
+
 }

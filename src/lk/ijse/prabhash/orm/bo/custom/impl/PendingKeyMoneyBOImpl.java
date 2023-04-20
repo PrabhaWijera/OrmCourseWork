@@ -19,13 +19,15 @@ public class PendingKeyMoneyBOImpl implements PendingKeyMoneyBO {
     public ArrayList<CustomDTO> getAllPendingKeyMoneyReservationsUsingReservationStatus() throws Exception {
         List<Object[]> objects = queryDAO.getAllPendingKeyMoneyReservationsUsingReservationStatus();
         List<CustomDTO> arrayList = new ArrayList<>();
-
+        System.out.println(arrayList+"array eka");
         for (Object[] o:objects
              ) {
             arrayList.add(new CustomDTO((String) o[0],(String) o[1],(String) o[2],(String) o[3],(String) o[4],(double) o[5],(String) o[6],(LocalDate) o[7]));
-        }
 
+        }
+        System.out.println(arrayList+"2arrays");
         return (ArrayList<CustomDTO>) arrayList;
+
 
 
     }

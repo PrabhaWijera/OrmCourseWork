@@ -19,6 +19,7 @@ public class QueryDAOImpl implements QueryDAO {
 
         List<Object[]> list = query.setParameter("y", "Paid Later").list();
 
+        System.out.println(list+"list eka");
         transaction.commit();
         session.close();
         return list;

@@ -22,8 +22,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
 
-public class PendingKeyMoneyFormController implements Initializable {
-   /* public TableView <CustomTM>tblReservation;*/
+public class PendingKeyMoneyFormController{
+
     public JFXTextField txtStudentId;
     public JFXComboBox<String> cmbPaymentStatus;
     public JFXButton btnUpdate;
@@ -42,16 +42,16 @@ public class PendingKeyMoneyFormController implements Initializable {
     public JFXTextField txtType;
     public JFXTextField txtRoomTypeId;
     public JFXTextField txtKeyMoney;
-    public TableView  <CustomTM>tblReservation;
+    public TableView  <CustomDTO>tblReservation;
 
 
 
     @SneakyThrows
-    @Override
 
-    public void initialize(URL location, ResourceBundle resources){
+
+    public void initialize(){
         loadAllData();
-        setCellValueFactory();
+
 
      colReservationId.setCellValueFactory(new PropertyValueFactory<>("res_id"));
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
@@ -79,59 +79,29 @@ tblReservation.getSelectionModel().selectedItemProperty().addListener((observabl
         txtDate.setText(String.valueOf(newValue.getDate()));
     }
         });
-  /*      tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {*/
-
-
-/*
-            if (newValue!= null){
-                txtReservationId.setText(newValue.getRes_id());
-                txtName.setText(newValue.getName());
-                txtRoomTypeId.setText(newValue.getRoom_type_id());
-                txtStudentId.setText(newValue.getStudent_id());
-                txtType.setText(newValue.getType());
-                txtKeyMoney.setText(String.valueOf(newValue.getKey_money()));
-                cmbPaymentStatus.setValue(newValue.getStatus());
-                txtDate.setText(String.valueOf(newValue.getDate()));
-            }
-        });
-
-        cmbPaymentStatus.getItems().addAll("Paid","Paid Later");
-*/
 
     }
 
 
-    private void setCellValueFactory() {
-        colReservationId.setCellValueFactory(new PropertyValueFactory("resID"));
-        colStudentId.setCellValueFactory(new PropertyValueFactory("studentID"));
-        colName.setCellValueFactory(new PropertyValueFactory("name"));
-        colRoomTypeId.setCellValueFactory(new PropertyValueFactory("roomTypeID"));
-        colType.setCellValueFactory(new PropertyValueFactory("type"));
-        colKeyMoney.setCellValueFactory(new PropertyValueFactory("keyMoney"));
-        colPaymentStatus.setCellValueFactory(new PropertyValueFactory("status"));
-        colDate.setCellValueFactory(new PropertyValueFactory("date"));
 
-    }
-
-    private void loadAllData() throws Exception {
+    private void loadAllData() {
        try {
-
-
             List<CustomDTO>allCus=pendingKeyMoneyBO.getAllPendingKeyMoneyReservationsUsingReservationStatus();
             for (CustomDTO dto:allCus) {
-                tblReservation.getItems().add(
-            new CustomTM(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate())
 
-                );
+                tblReservation.getItems().add(
+            new CustomDTO(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate()));
+            tblReservation.setItems(FXCollections.observableArrayList(allCus));
+                System.out.println(allCus);
+                System.out.println("table eka lnga");
+                System.out.println(tblReservation);
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-   /*   tblReservation.setItems(FXCollections.observableArrayList(pendingKeyMoneyBO.getAllPendingKeyMoneyReservationsUsingReservationStatus().stream().map(dto -> {
-            return new CustomTM(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate());
-        }).collect(Collectors.toList())));*/
+
 
 
 }
@@ -141,10 +111,10 @@ tblReservation.getSelectionModel().selectedItemProperty().addListener((observabl
         try {
             boolean b = pendingKeyMoneyBO.updateReservationUsingId(txtReservationId.getText(), String.valueOf(cmbPaymentStatus.getValue()));
             if (b=true){
-             loadAllData();
+
                 new Alert(Alert.AlertType.CONFIRMATION,"Updated").show();
             }
-            tblReservation.getItems().remove(tblReservation.getSelectionModel().getSelectedItem());
+        
 
 
 

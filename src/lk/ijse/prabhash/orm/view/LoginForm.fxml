@@ -15,40 +15,44 @@
    <children>
       <ImageView fitHeight="800.0" fitWidth="1300.0">
          <image>
+            <Image url="@../../../../../resouces/Assets/v996-025.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="741.0" fitWidth="1126.0" layoutX="87.0" layoutY="30.0">
+         <image>
             <Image url="@../../../../../resouces/Assets/2762372.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="149.0" fitWidth="295.0" layoutX="239.0" layoutY="171.0">
+      <ImageView fitHeight="149.0" fitWidth="295.0" layoutX="282.0" layoutY="178.0">
          <image>
             <Image url="@../../../../../resouces/Assets/ddd.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="771.0" layoutY="331.0" stroke="BLACK" strokeType="INSIDE" width="295.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="769.0" layoutY="381.0" stroke="BLACK" strokeType="INSIDE" width="295.0" />
-      <JFXTextField fx:id="txtUserName" focusColor="BLACK" labelFloat="true" layoutX="771.0" layoutY="331.0" prefHeight="39.0" prefWidth="295.0" promptText="     User Name" />
-      <JFXPasswordField fx:id="txtPassword" focusColor="BLACK" labelFloat="true" layoutX="771.0" layoutY="381.0" prefHeight="39.0" prefWidth="295.0" promptText="    Password" />
-      <JFXButton buttonType="RAISED" layoutX="762.0" layoutY="498.0" onAction="#btnLoginOnAction" prefHeight="28.0" prefWidth="309.0" style="-fx-background-color: #2980b9;" text="Login" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="754.0" layoutY="334.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="39.0" layoutX="754.0" layoutY="381.0" stroke="BLACK" strokeType="INSIDE" width="309.0" />
+      <JFXTextField fx:id="txtUserName" focusColor="BLACK" labelFloat="true" layoutX="754.0" layoutY="334.0" prefHeight="39.0" prefWidth="309.0" promptText="     User Name" />
+      <JFXPasswordField fx:id="txtPassword" focusColor="BLACK" labelFloat="true" layoutX="754.0" layoutY="381.0" prefHeight="39.0" prefWidth="309.0" promptText="    Password" />
+      <JFXButton buttonType="RAISED" layoutX="728.0" layoutY="490.0" onAction="#btnLoginOnAction" prefHeight="54.0" prefWidth="343.0" style="-fx-background-color: #2980b9;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
       <Label fx:id="lblWrong" layoutX="35.0" layoutY="307.0" prefHeight="39.0" prefWidth="295.0" textFill="#bc1717" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ecf6ff" height="39.0" layoutX="503.0" layoutY="723.0" stroke="#d0d4d7" strokeType="INSIDE" width="295.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5cb0ff" height="39.0" layoutX="146.0" layoutY="120.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="477.0" />
-      <Label layoutX="146.0" layoutY="115.0" prefHeight="43.0" prefWidth="499.0" text="Hostel Management System" textFill="WHITE">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ecf6ff" height="39.0" layoutX="503.0" layoutY="701.0" stroke="#d0d4d7" strokeType="INSIDE" width="295.0" />
+      <Label layoutX="311.0" layoutY="30.0" prefHeight="47.0" prefWidth="680.0" text="D24 Hostel Management System" textFill="WHITE">
          <font>
-            <Font name="Verdana Bold" size="31.0" />
+            <Font name="Verdana Bold" size="37.0" />
          </font>
          <effect>
-            <DropShadow />
+            <DropShadow color="#2600d0" spread="0.79" />
          </effect>
       </Label>
-      <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="882.0" layoutY="159.0">
+      <ImageView fitHeight="54.0" fitWidth="69.0" layoutX="848.0" layoutY="158.0">
          <image>
             <Image url="@../../../../../resouces/Assets/businessman.png" />
          </image>
       </ImageView>
-      <Label layoutX="509.0" layoutY="733.0" text="      Develop by  Prabhash Wijerathna ™ ">
+      <Label layoutX="508.0" layoutY="708.0" prefHeight="25.0" prefWidth="284.0" text="      Develop by  Prabhash Wijerathna ™ ">
          <font>
             <Font name="Berlin Sans FB Demi Bold" size="16.0" />
          </font>

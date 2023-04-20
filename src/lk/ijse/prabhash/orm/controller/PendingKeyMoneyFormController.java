@@ -3,6 +3,7 @@ package lk.ijse.prabhash.orm.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
@@ -11,13 +12,16 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import lk.ijse.prabhash.orm.bo.BOFactory;
 import lk.ijse.prabhash.orm.bo.custom.PendingKeyMoneyBO;
 import lk.ijse.prabhash.orm.dto.CustomDTO;
+import lk.ijse.prabhash.orm.view.tm.CustomTM;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class PendingKeyMoneyFormController {
-    public TableView <CustomDTO>tblReservation;
+   /* public TableView <CustomTM>tblReservation;*/
     public JFXTextField txtStudentId;
-    public JFXComboBox cmbPaymentStatus;
+    public JFXComboBox<String> cmbPaymentStatus;
     public JFXButton btnUpdate;
     public JFXTextField txtDate;
     public JFXTextField txtName;
@@ -34,46 +38,49 @@ public class PendingKeyMoneyFormController {
     public JFXTextField txtType;
     public JFXTextField txtRoomTypeId;
     public JFXTextField txtKeyMoney;
+    public TableView <CustomTM>tblReservation;
 
     public void initialize(){
-        colReservationId.setCellValueFactory(new PropertyValueFactory<>("res_id"));
-        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
-        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("key_money"));
-        colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
-        loadAllData();
+//
+//        colReservationId.setCellValueFactory(new PropertyValueFactory<>("res_id"));
+//        colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
+//        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+//        colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
+//        colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+//        colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("key_money"));
+//        colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+//        colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
+        cmbPaymentStatus.getItems().addAll("Paid","Paid Later");
+colReservationId.setCellValueFactory(new PropertyValueFactory<>("resID"));
+colStudentId.setCellValueFactory(new PropertyValueFactory<>("studentID"));
+colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+colRoomTypeId.setCellValueFactory(new PropertyValueFactory<>("roomTypeID"));
+colType.setCellValueFactory(new PropertyValueFactory<>("type"));
+colKeyMoney.setCellValueFactory(new PropertyValueFactory<>("keyMoney"));
+colPaymentStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
+colDate.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-        txtReservationId.setEditable(false);
-        txtName.setEditable(false);
-        txtRoomTypeId.setEditable(false);
-        txtStudentId.setEditable(false);
-        txtType.setEditable(false);
-        txtKeyMoney.setEditable(false);
-        txtDate.setEditable(false);
+tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) ->{
+    btnUpdate.setDisable(newValue == null);
 
-        txtReservationId.setDisable(true);
-        txtName.setDisable(true);
-        txtRoomTypeId.setDisable(true);
-        txtStudentId.setDisable(true);
-        txtType.setDisable(true);
-        txtKeyMoney.setDisable(true);
-        txtDate.setDisable(true);
-//        btnUpdate.setDisable(true);
 
-        tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+    if (newValue != null){
+        txtReservationId.setText(newValue.getRes_id());
+        txtStudentId.setText(newValue.getStudent_id());
+        txtName.setText(newValue.getName());
+        txtRoomTypeId.setText(newValue.getRoom_type_id());
+        txtType.setText(newValue.getType());
+        System.out.println("waduna");
+        txtKeyMoney.setText(String.valueOf(newValue.getKey_money()));
+        cmbPaymentStatus.setValue(newValue.getType());
+        txtDate.setText(String.valueOf(newValue.getDate()));
+    }
+        });
+  /*      tblReservation.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {*/
+
+
+/*
             if (newValue!= null){
-                txtReservationId.setDisable(false);
-                txtName.setDisable(false);
-                txtRoomTypeId.setDisable(false);
-                txtStudentId.setDisable(false);
-                txtType.setDisable(false);
-                txtKeyMoney.setDisable(false);
-                txtDate.setDisable(false);
-//                btnUpdate.setDisable(false);
-
                 txtReservationId.setText(newValue.getRes_id());
                 txtName.setText(newValue.getName());
                 txtRoomTypeId.setText(newValue.getRoom_type_id());
@@ -82,67 +89,55 @@ public class PendingKeyMoneyFormController {
                 txtKeyMoney.setText(String.valueOf(newValue.getKey_money()));
                 cmbPaymentStatus.setValue(newValue.getStatus());
                 txtDate.setText(String.valueOf(newValue.getDate()));
-            }else {
-                txtReservationId.clear();
-                txtName.clear();
-                txtRoomTypeId.clear();
-                txtStudentId.clear();
-                txtType.clear();
-                txtKeyMoney.clear();
-                cmbPaymentStatus.getSelectionModel().clearSelection();
-                txtDate.clear();
             }
         });
 
         cmbPaymentStatus.getItems().addAll("Paid","Paid Later");
+*/
+
     }
 
-    private void loadAllData() {
-        try {
-            List<CustomDTO> list = pendingKeyMoneyBO.getAllPendingKeyMoneyReservationsUsingReservationStatus();
+    private void loadAllData() throws Exception {
+       try {
 
-            for (CustomDTO dto:list
-                 ) {
+
+            List<CustomDTO>allCus=pendingKeyMoneyBO.getAllPendingKeyMoneyReservationsUsingReservationStatus();
+            for (CustomDTO dto:allCus) {
                 tblReservation.getItems().add(
-                      new CustomDTO(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate())
+            new CustomTM(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate())
+
                 );
             }
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+        initialize();
+   /*   tblReservation.setItems(FXCollections.observableArrayList(pendingKeyMoneyBO.getAllPendingKeyMoneyReservationsUsingReservationStatus().stream().map(dto -> {
+            return new CustomTM(dto.getRes_id(),dto.getStudent_id(),dto.getName(),dto.getRoom_type_id(),dto.getType(),dto.getKey_money(),dto.getStatus(),dto.getDate());
+        }).collect(Collectors.toList())));*/
+
+
+}
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
 
         try {
             boolean b = pendingKeyMoneyBO.updateReservationUsingId(txtReservationId.getText(), String.valueOf(cmbPaymentStatus.getValue()));
-            if (b){
-
+            if (b=true){
+             loadAllData();
                 new Alert(Alert.AlertType.CONFIRMATION,"Updated").show();
             }
             tblReservation.getItems().remove(tblReservation.getSelectionModel().getSelectedItem());
-            tblReservation.getSelectionModel().clearSelection();
-            txtReservationId.clear();
-            txtName.clear();
-            txtRoomTypeId.clear();
-            txtStudentId.clear();
-            txtType.clear();
-            txtKeyMoney.clear();
-            cmbPaymentStatus.getSelectionModel().clearSelection();
-            txtDate.clear();
 
-            txtReservationId.setDisable(true);
-            txtName.setDisable(true);
-            txtRoomTypeId.setDisable(true);
-            txtStudentId.setDisable(true);
-            txtType.setDisable(true);
-            txtKeyMoney.setDisable(true);
-            txtDate.setDisable(true);
-            btnUpdate.setDisable(true);
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void btnAddOnAction(ActionEvent actionEvent) {
+
     }
 }

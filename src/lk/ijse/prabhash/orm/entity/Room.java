@@ -14,8 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+
 @Entity
 public class Room {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

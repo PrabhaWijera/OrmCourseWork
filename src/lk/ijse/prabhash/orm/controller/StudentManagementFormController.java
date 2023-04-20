@@ -46,14 +46,9 @@ public class StudentManagementFormController {
     Student student=new Student();
 
     public void initialize(){
-
-        textClearAndBtnDisable();
-
         cmbGender.getItems().addAll("Male","Female","Other");
 
         loadAllStudents();
-
-
 
         colStudentId.setCellValueFactory(new PropertyValueFactory<>("student_id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -75,12 +70,6 @@ public class StudentManagementFormController {
                 txtDOB.setText(String.valueOf(newValue.getDob()));
                 cmbGender.setValue(newValue.getGender());
 
-                txtStudentId.setDisable(false);
-                txtName.setDisable(false);
-                txtAddress.setDisable(false);
-                txtContactNo.setDisable(false);
-                txtDOB.setDisable(false);
-                cmbGender.setDisable(false);
 
             }
         });
@@ -102,23 +91,7 @@ public class StudentManagementFormController {
     }
 
     private void textClearAndBtnDisable() {
-   /*     txtStudentId.clear();
-        txtName.clear();
-        txtAddress.clear();
-        txtContactNo.clear();
-        txtDOB.clear();
-        cmbGender.getSelectionModel().clearSelection();
 
-        txtStudentId.setDisable(true);
-        txtName.setDisable(true);
-        txtAddress.setDisable(true);
-        txtContactNo.setDisable(true);
-        txtDOB.setDisable(true);
-        cmbGender.setDisable(true);
-
-        txtStudentId.setEditable(false);
-        btnSave.setDisable(true);
-        btnDelete.setDisable(true);*/
     }
 
     private void generateNewId() {
@@ -202,12 +175,7 @@ public class StudentManagementFormController {
     }
 
     public void btnNewOnAction(ActionEvent actionEvent) {
-        txtStudentId.setDisable(false);
-        txtName.setDisable(false);
-        txtAddress.setDisable(false);
-        txtContactNo.setDisable(false);
-        txtDOB.setDisable(false);
-        cmbGender.setDisable(false);
+
 
         txtStudentId.clear();
         generateNewId();
@@ -218,20 +186,16 @@ public class StudentManagementFormController {
         cmbGender.getSelectionModel().clearSelection();
 
         txtName.requestFocus();
-        btnSave.setDisable(false);
+
         btnSave.setText("Save");
         tblStudent.getSelectionModel().clearSelection();
     }
 
     public void textFields_Key_Released(KeyEvent keyEvent) {
-   /*     ValidationUtil.validate(map,btnSave);
 
-        if (keyEvent.getCode() == KeyCode.ENTER) {
-            Object response =  ValidationUtil.validate(map,btnSave);;
+    }
 
-            if (response instanceof TextField) {
-                TextField textField = (TextField) response;
-                textField.requestFocus();  }
-        }*/
+    public void ReeportOnAction(ActionEvent actionEvent) {
+
     }
 }

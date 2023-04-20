@@ -10,8 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Cacheable
-@org.hibernate.annotations.Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+
 @Entity
 public class User {
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)

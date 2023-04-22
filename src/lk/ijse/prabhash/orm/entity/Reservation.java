@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Cacheable
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

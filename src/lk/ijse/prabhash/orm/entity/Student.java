@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Cacheable
 @Entity
 public class Student {
    /* @GeneratedValue(strategy = GenerationType.IDENTITY)*/
